@@ -42,8 +42,6 @@ public class FileSystemStorageService implements StorageService{
 
 	
 	public FileSystemStorageService(@Value("${upload.root-location}") String path) {
-    System.out.println("HOLAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
-
 		this.rootLocation = Paths.get(path);
 	}
     
@@ -58,12 +56,10 @@ public class FileSystemStorageService implements StorageService{
      */
     @Override
     public String store(MultipartFile file) {
-        System.out.println("Procesodor de imagen");
         String filename = StringUtils.cleanPath(file.getOriginalFilename());
         String extension = StringUtils.getFilenameExtension(filename);
         String justFilename = filename.replace("."+extension, "");
         String storedFilename = System.currentTimeMillis() + "_" + justFilename + "." + extension;
-        System.out.println("NOMBRE DESDE ACA"+ extension);
 
         try {
             if (file.isEmpty()) {

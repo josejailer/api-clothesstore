@@ -1,11 +1,15 @@
 package com.clothesstore.api.Config;
 
 
+import java.util.Collections;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
+import springfox.documentation.service.ApiInfo;
+import springfox.documentation.service.Contact;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
@@ -21,21 +25,21 @@ public class SwaggerConfig {
 				.apis(RequestHandlerSelectors.basePackage("com.clothesstore.api.Controllers"))
 				.paths(PathSelectors.any())
 				.build()
-				//.apiInfo(getApiInfo())
-
+				.apiInfo(getApiInfo())
 				;
 	}
 	
-/*	private ApiInfo getApiInfo() {
+ 	private ApiInfo getApiInfo() {
 		return new ApiInfo(
-				"Order Service API",
-				"Order Service API Description",
-				"1.0",
-				"http://codmind.com/terms",
-				new Contact("Codmind", "https://codmind.com", "apis@codmind.com"),
+				"API CLOTHESSTORE",
+				"Gestión de Productos",
+				"Version: 1.0",
+				"Desarrollador: José Viveros",
+				new Contact("José Viveros","", "jose.viveros.dev@gmail.com"),
 				"LICENSE",
 				"LICENSE URL",
 				Collections.emptyList()
 				);
-	}*/
+	} 
+
 }

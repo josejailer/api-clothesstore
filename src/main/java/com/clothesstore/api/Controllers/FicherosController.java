@@ -17,11 +17,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import io.swagger.annotations.Api;
 import lombok.RequiredArgsConstructor;
+import springfox.documentation.annotations.ApiIgnore;
 
 
 @Controller
 @RequiredArgsConstructor
+@ApiIgnore
+@Api(tags = "Controlador de imagenes" , description = "Para gestionar la cargar de ficheros desde Products Controllers")
 public class FicherosController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(FicherosController.class);

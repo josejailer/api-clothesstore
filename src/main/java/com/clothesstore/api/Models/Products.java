@@ -3,8 +3,11 @@ package com.clothesstore.api.Models;
 import java.math.BigDecimal;
 import javax.persistence.*;
 
+import io.swagger.annotations.ApiModel;
+
 @Entity
 @Table(name = "products")
+@ApiModel("Model Products")
 public class Products {
 
     @Id

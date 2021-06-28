@@ -16,8 +16,11 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.method.annotation.MvcUriComponentsBuilder;
 
+import io.swagger.annotations.Api;
+
 @RestController
 @RequestMapping("/products")
+@Api(tags = "Productos", description = "Para gestión de los Productos" )
 public class ProductsController {
     @Autowired
     private ProductsService productsService;
@@ -59,7 +62,6 @@ public class ProductsController {
             urlImageaRear = MvcUriComponentsBuilder
                     .fromMethodName(FicherosController.class, "serveFile", urlImageaRear, null).build().toUriString();
         }
-        System.out.println("HOLAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
         Products newProduct = new Products();
         newProduct.setUrlImageFront(urlImageFront);
         newProduct.setName(name);
@@ -98,6 +100,7 @@ public class ProductsController {
                     .fromMethodName(FicherosController.class, "serveFile", urlImageaRear, null).build().toUriString();
         }
         Products newProduct = new Products();
+        newProduct.setId(id);
         newProduct.setUrlImageFront(urlImageFront);
         newProduct.setName(name);
         newProduct.setDescription(description);
